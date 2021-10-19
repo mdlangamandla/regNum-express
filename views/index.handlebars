@@ -1,0 +1,81 @@
+<div class="container">
+    <h1>Registration number</h1>
+    <div class="box">
+
+        <label for="registration-number" class="ins">
+            <h3>Please enter registration number: </h3>
+        </label>
+
+        {{!-- erro message --}}
+        {{#if messages.error}}
+        <div name="message" class="error">
+            <strong>{{messages.error}}</strong>
+        </div>
+        {{/if}}
+
+        {{!-- info messages --}}        
+        <div name="info" class="info">
+            <strong>{{messages.info}}</strong>
+        </div>
+        <br>
+
+        <form action="reg_numbers" method="POST">
+            <div class="regNumber">
+
+                <input name="regNumber" type="text" class="regNumberInput" required>
+                <BR>
+                <h4>Accept registration formats, small letters are accepted as well</h4>
+                <h5>CAPE TOWN CAA/CA 123 456 or CAA/CA 123-456 or CAA/CA 12345</h5>
+
+                <h5>BELLVILLE CY 123 456 or CY 123-456 or CY 12345</h5>
+
+                <h5>KUILSRIVER CF 123 456 or CF 123-456 or CF 12345</h5>
+
+            </div>
+            <div class="butt">
+
+                <button class="primary-button addBtn" type="submit">Add</button>
+        </form>
+
+
+        <form action="/list" method="GET">
+            <button class="primary-button allTowns" type="submit">Show all</button>
+        </form>
+        <form action="/reset" method="GET">
+            <button class="resetBt" type="submit">Reset</button>
+        </form>
+
+        <form action="/town_reg" method="post">
+            <button class="town" type="submit">For town</button>
+    </div>
+            <strong>
+                <div class="rb">
+                    <input type="radio" id="rad1" name="townReg" class="town" value="CA">
+                    <label for="rad1">Cape Town</label>
+
+                    <input type="radio" id="rad2" name="townReg" class="town" value="CL">
+                    <label for="rad2">Bellville</label>
+
+                    <input type="radio" id="rad3" name="townReg" class="town" value="CJ">
+                    <label for="rad3">Kuilsriver</label>
+                </div>
+            </strong>
+            
+        </form>
+
+
+    </div>
+
+
+    <hr size="1px" width="100%" color="">
+
+    <section id="myEle" class="myElement">
+        {{#each regList}}
+        <button class="reg"><strong>{{reg_num}}</strong></button>
+        {{/each}}         
+    </section>
+    <hr size="1px" width="100%" color="">
+
+
+</div>
+</div>

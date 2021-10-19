@@ -1,0 +1,28 @@
+{
+  "name": "registration-number",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "npm test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Melikhaya Dlangamandla",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-flash": "^0.0.2",
+    "express-handlebars": "^5.3.4",
+    "express-session": "^1.17.2",
+    "nodemon": "^2.0.13",
+    "pg-promise": "^10.11.1"
+  },
+  "description": "",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3"
+  }
+}
