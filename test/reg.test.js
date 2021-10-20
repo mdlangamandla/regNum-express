@@ -61,22 +61,7 @@ describe('Registration number tests', async () => {
 
         assert.deepEqual([{ "reg_num": 'CF 878 555' }], await registration.getRegList())
     })
-    describe('Validating by regex', () => {
-        it('Should return error message if the registration number is entered is wrong.', async () => {
-            beforeEach(async ()=> {
-                // clean the tables before each test run
-                await registration.resetDB();
 
-            });
-
-        assert.equal(undefined, await registration.setReg({ registration: 'ca12345' }))
-        });
-        it('It Should return error message if the entered registration number does not belong from Cape Kuilsriver/ Cape Town or Bellville', async () => {
-            beforeEach(async ()=> {
-                // clean the tables before each test run
-                await registration.resetDB();
-
-            });
 
         assert.equal(undefined, await registration.setReg({ registration: 'CEO 12345' }))
         })
