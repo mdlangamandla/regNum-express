@@ -61,67 +61,7 @@ describe('Registration number tests', async () => {
 
         assert.deepEqual([{ "reg_num": 'CF 878 555' }], await registration.getRegList())
     })
-    describe('Validating by regex', () => {
-        it('Should return error message if the registration number is entered is wrong.', async () => {
-            beforeEach(async ()=> {
-                // clean the tables before each test run
-                await registration.resetDB();
 
-            });
-
-        assert.equal(undefined, await registration.setReg({ registration: 'ca12345' }))
-        });
-        it('It Should return error message if the entered registration number does not belong from Cape Kuilsriver/ Cape Town or Bellville', async () => {
-            beforeEach(async ()=> {
-                // clean the tables before each test run
-                await registration.resetDB();
-
-            });
-
-        assert.equal(undefined, await registration.setReg({ registration: 'CEO 12345' }))
-        })
-        it("Grabouw registratiion number entered does not exists in the Application.", async () => {
-            beforeEach(async  ()=> {
-                // clean the tables before each test run
-                await registration.resetDB();
-
-            });
-
-        assert.equal(undefined, await registration.setReg({ registration: "CY 152775" }))
-        })
-        it("It should add to the list registration when it is correct", async () => {
-            beforeEach(async ()=> {
-                // clean the tables before each test run
-                await registration.resetDB();
-
-            });
-
-            await registration.setReg({ registration: "CA 123 456" })
-            assert.deepEqual([{ "reg_num": 'CA 123 456' }], await registration.getRegList())
-        })
-        it("It should not add to the list registration when it is correct and already exist on the list", async () => {
-            beforeEach(async ()=> {
-                // clean the tables before each test run
-                await registration.resetDB();
-
-            });
-
-            await registration.setReg({ registration: "CA 123 456" })
-            await registration.setReg({ registration: "CA 123 456" })
-            assert.deepEqual([{ "reg_num": 'CA 123 456' }], await registration.getRegList())
-        })
-        it("It should add to the list registration when it is correct and have not been added before", async () => {
-            beforeEach(async ()=> {
-                // clean the tables before each test run
-                await registration.resetDB();
-
-            });
-
-            await registration.setReg({ registration: "CA 123 456" })
-            await registration.setReg({ registration: "CY 123 456" }) 
-            assert.deepEqual([{ "reg_num": 'CA 123 456' }, { "reg_num": 'CY 123 456' }], await registration.getRegList())
-        })
-    })
 
 
     describe('Test filter function', ()=>{
